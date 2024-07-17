@@ -1,17 +1,10 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
-import cors from 'cors';
 import express from 'express';
 import { getNewPlayerSet, getSet, getPlayer } from './common/players.js';
 
 const app = express();
 const PORT = process.env.PORT || 8000;
-
-// Enable CORS for all origins
-app.use(cors({
-  origin: '*', // Adjust this if necessary
-  credentials: true,
-}));
 
 app.use('/',(req,res)=>{
   res.json({message:"hello world"})

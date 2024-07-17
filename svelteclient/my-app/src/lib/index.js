@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
 
-const socket = io('https://svelte-auction-backend-mone31jca-srujank526s-projects.vercel.app/');
+const socket = io('http://localhost:8000/');
 
 export default socket;
