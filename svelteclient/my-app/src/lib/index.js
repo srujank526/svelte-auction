@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
 
-const socket = io('https://silver-twilight-a4cbd7.netlify.app');
+const socket = io('https://svelte-auction-backend.vercel.app/');
 
 export default socket;

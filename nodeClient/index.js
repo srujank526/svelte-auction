@@ -1,12 +1,22 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
+import cors from 'cors';
+import express from 'express';
 import { getNewPlayerSet, getSet, getPlayer } from './common/players.js';
 
+const app = express();
 const PORT = process.env.PORT || 8000;
-const httpServer = createServer();
+
+// Enable CORS for all origins
+app.use(cors({
+  origin: 'http://localhost:5173', // Adjust this if necessary
+  credentials: true,
+}));
+
+const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: 'http://localhost:5173', // Adjust this if necessary
     credentials: true,
   }
 });
@@ -15,9 +25,7 @@ let clients = [];
 let roomData = {}; // Object to store data for each room
 
 io.on("connection", (socket) => {
-
   socket.on('join-room', ({ name, roomId }) => {
-
     socket.join(roomId);
     clients.push({ socket: socket.id, roomId, name });
 
@@ -60,4 +68,4 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(PORT,()=>console.log(`server running at port ${PORT}`));
+httpServer.listen(PORT, () => console.log(`Server running at port ${PORT}`));
