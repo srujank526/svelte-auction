@@ -60,4 +60,4 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(PORT);
+httpServer.listen(PORT,()=>console.log(`server running at port ${PORT}`));

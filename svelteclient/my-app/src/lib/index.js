@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:8000');
+const socket = io('https://silver-twilight-a4cbd7.netlify.app');
 
 export default socket;
