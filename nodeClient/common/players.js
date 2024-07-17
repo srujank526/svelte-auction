@@ -1307,4 +1307,7 @@ export function getSet(typeId){
     let type = playerType[typeId]
     return PlayersBasedOnType[type]
 }
-export default players;
+const getNewPlayerSet = () => {
+    return players.map(player => ({ ...player }));
+  };
+export {getNewPlayerSet};
