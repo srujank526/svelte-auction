@@ -13,7 +13,7 @@ app.use('/',(req,res)=>{
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: '*', // Adjust this if necessary
+    origin: 'http://localhost:5173', // Adjust this if necessary
     methods: ["GET", "POST"],
     credentials: true,
   }
