@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8000;
 
 // Enable CORS for all origins
 app.use(cors({
-  origin: 'http://localhost:5173', // Adjust this if necessary
+  origin: '*', // Adjust this if necessary
   credentials: true,
 }));
 
@@ -20,7 +20,7 @@ app.use('/',(req,res)=>{
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: 'http://localhost:5173', // Adjust this if necessary
+    origin: '*', // Adjust this if necessary
     credentials: true,
   }
 });
