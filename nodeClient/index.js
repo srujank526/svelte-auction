@@ -10,10 +10,11 @@ app.use('/',(req,res)=>{
   res.json({message:"hello world"})
 })
 
-const httpServer = createServer();
+const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: 'http://localhost:5173'
+    origin: 'http://localhost:5173', // Adjust this if necessary
+    methods: ["GET", "POST"],
   }
 });
 
