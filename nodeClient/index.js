@@ -13,7 +13,7 @@ app.use('/',(req,res)=>{
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: '*' // Adjust this if necessary
+    origin: "https://svelte-auction-frontend.vercel.app/" // Adjust this if necessary
   }
 });
 
